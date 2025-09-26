@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbería Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    @keyframes shimmer {
+      100% {
+        background-position: -200% center;
+      }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .shimmer {
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.1) 25%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0.1) 75%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-['Inter']">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-black/70 backdrop-blur-lg border-b border-yellow-500/20 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+      <div class="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Barbería Premium</div>
+      <div class="hidden md:flex gap-6">
+        <a href="#inicio" class="hover:text-yellow-400 transition">Inicio</a>
+        <a href="#servicios" class="hover:text-yellow-400 transition">Servicios</a>
+        <a href="#portfolio" class="hover:text-yellow-400 transition">Portfolio</a>
+        <a href="#nosotros" class="hover:text-yellow-400 transition">Nosotros</a>
+      </div>
+      <button onclick="openModal()" class="bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-2 rounded-lg text-black font-semibold shadow hover:scale-105 transition">Reservar Cita</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="inicio" class="h-screen flex items-center justify-center text-center bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1586351012965-861624544334?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 px-6">
+      <h1 class="text-5xl md:text-7xl font-bold font-['Playfair_Display'] bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent animate-pulse">Eleva tu estilo</h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-200">Experiencia premium en cortes, barbas y estilo moderno</p>
+      <button onclick="openModal()" class="mt-6 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition">Reservar Ahora</button>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-['Playfair_Display'] font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Nuestro Trabajo</h2>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1599351431202-1e0f01338943?auto=format&fit=crop&w=800&q=80" class="w-full h-80 object-cover transform group-hover:scale-110 transition" alt="Estilo 1">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1622286342621-4f214c1b2102?auto=format&fit=crop&w=800&q=80" class="w-full h-80 object-cover transform group-hover:scale-110 transition" alt="Estilo 2">
+        </div>
+        <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1593702295093-a7f8c446c9a6?auto=format&fit=crop&w=800&q=80" class="w-full h-80 object-cover transform group-hover:scale-110 transition" alt="Estilo 3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-4xl font-['Playfair_Display'] font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Nuestra Historia</h2>
+        <p class="mt-6 text-gray-300">Con más de 10 años de experiencia, ofrecemos un servicio de barbería moderno con técnicas clásicas y un ambiente elegante. Nos dedicamos a que cada cliente se sienta único.</p>
+        <div class="mt-6 grid grid-cols-2 gap-6">
+          <div class="bg-black/40 border border-yellow-400/30 rounded-lg p-6 text-center shimmer">
+            <p class="text-3xl font-bold text-yellow-400">10+</p>
+            <p class="text-sm text-gray-300">Años de experiencia</p>
+          </div>
+          <div class="bg-black/40 border border-yellow-400/30 rounded-lg p-6 text-center shimmer">
+            <p class="text-3xl font-bold text-yellow-400">500+</p>
+            <p class="text-sm text-gray-300">Clientes satisfechos</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden shadow-lg animate-[float_4s_ease-in-out_infinite]">
+        <img src="https://images.unsplash.com/photo-1593702295093-a7f8c446c9a6?auto=format&fit=crop&w=1200&q=80" alt="Barbería" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black text-center">
+    <h2 class="text-4xl font-['Playfair_Display'] font-bold">¿Listo para un cambio de estilo?</h2>
+    <p class="mt-4 text-lg">Reserva tu cita y vive la experiencia premium</p>
+    <button onclick="openModal()" class="mt-6 bg-black text-yellow-400 px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition">Reservar Ahora</button>
+  </section>
+
+  <!-- Modal -->
+  <div id="appointmentModal" class="fixed inset-0 hidden bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-lg w-full max-w-md p-6 relative">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+      <form id="appointmentForm" class="space-y-5">
+        <h3 class="text-2xl font-semibold text-gray-800 text-center">Solicitar Cita</h3>
+
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo:</label>
+          <input type="text" id="name" name="name" required class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono (WhatsApp):</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+34 600 000 000" class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-medium text-gray-700">Servicio:</label>
+          <select id="service" name="service" required class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <option value="">Selecciona un servicio</option>
+            <option value="corte-clasico">Corte Clásico - €25</option>
+            <option value="styling-moderno">Styling Moderno - €35</option>
+            <option value="barba-bigote">Barba & Bigote - €20</option>
+            <option value="coloracion">Coloración - €45</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="date" class="block text-sm font-medium text-gray-700">Fecha Preferida:</label>
+          <input type="date" id="date" name="date" required class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        </div>
+
+        <div>
+          <label for="time" class="block text-sm font-medium text-gray-700">Hora Preferida:</label>
+          <select id="time" name="time" required class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            <option value="">Selecciona una hora</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700">Notas adicionales:</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Describe el estilo que buscas o cualquier preferencia especial..." class="mt-1 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 rounded-lg transition">Enviar Solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("appointmentModal");
+    const form = document.getElementById("appointmentForm");
+
+    function openModal() {
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+    }
+
+    window.onclick = function (e) {
+      if (e.target === modal) closeModal();
+    };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get("name");
+      const phone = data.get("phone");
+      const service = data.get("service");
+      const date = data.get("date");
+      const time = data.get("time");
+      const notes = data.get("notes");
+
+      // WhatsApp redirección (real)
+      const message = `Hola, soy ${name}. Quiero reservar una cita para ${service} el ${date} a las ${time}. Teléfono: ${phone}. Notas: ${notes}`;
+      window.open(`https://wa.me/${phone.replace(/\s|\+/g,"")}?text=${encodeURIComponent(message)}`, "_blank");
+
+      form.reset();
+      closeModal();
+    });
+  </script>
+</body>
+</html>
